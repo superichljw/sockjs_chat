@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.chat.Interface.chat_signup">
+	<insert id="chatSignup">
+		insert into chat values(
+		#{userId},#{userPw},
+		#{userName}, #{userAdres}, #{userPhone},
+		#{userDate}, #{userEmail})
+	</insert>
+	<select id="chatLogin" resultType="com.project.VO.signupVO">
+		select * from chat where
+		userId=#{param1} and userPw=#{param2}
+	</select>
+	<select id="IdCheck" resultType="_int">
+		select count(*) from chat
+		where
+		userId=#{param1}
+	</select>
+</mapper>
